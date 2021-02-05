@@ -12,7 +12,7 @@ const filmSchema = new schema({
     description:{
         type: String
     },
-    realeaseDate:{
+    releaseDate:{
         type: Date
     },
     rating:{
