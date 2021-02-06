@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "mocha --timeout 10000"
   },
   "engines": {
     "node": "10.x"
@@ -25,5 +26,10 @@
     "multer-s3": "^2.9.0",
     "tinify": "^1.6.0-beta.2",
     "web3": "^1.2.11"
+  },
+  "devDependencies": {
+    "chai": "^4.3.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^8.2.1"
   }
 }
