@@ -25,7 +25,7 @@ const filmSchema = new schema({
         type: String,
     },
     genre:{
-        type: Array,
+        type: String,
     },
     photo:{
         type: String,
