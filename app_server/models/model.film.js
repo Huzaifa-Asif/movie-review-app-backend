@@ -30,6 +30,10 @@ const filmSchema = new schema({
     photo:{
         type: String,
     },
+    createdAt:{
+        type: Date,
+        default: Date.now
+    },
   
 })
 

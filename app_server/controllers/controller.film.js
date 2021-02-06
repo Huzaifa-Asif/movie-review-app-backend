@@ -7,7 +7,7 @@ module.exports.getFilmById = (id ,callback) =>  {
 
 // Get All Films
 module.exports.getAllFilms = (callback) =>  {
-	film.find(callback);
+	film.find(callback).sort([['createdAt', -1]])
 }
 
 // Add Film
