@@ -3,13 +3,13 @@ var user=require('../models/model.user.js');
 
 // Login
 module.exports.login = (email,callback) => {
-    user.find({email: email}, callback);
+    user.findOne({email: email}, callback);
 }
 
 // Add User 
 module.exports.addUser = (userForm ,callback) =>  {
     record=new user();
-    record.email=userForm.name;
+    record.name=userForm.name;
     record.email=userForm.email;
     record.password=record.hashPassword(userForm.password);
     record.save(callback);

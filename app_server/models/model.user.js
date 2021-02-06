@@ -3,9 +3,9 @@ const bcrypt = require('bcrypt-nodejs');
 
 const schema = mongoose.Schema;
 
-// Admin Schema
+// User Schema
 
-const adminSchema = new schema({
+const userSchema = new schema({
 
     name: {
         type: String
@@ -19,11 +19,11 @@ const adminSchema = new schema({
 
 
 })
-adminSchema.methods.hashPassword = function (password) {
+userSchema.methods.hashPassword = function (password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(10))
 }
-adminSchema.methods.comparePassword = function (password, hash) {
+userSchema.methods.comparePassword = function (password, hash) {
     return bcrypt.compareSync(password, hash)
 }
 
-const admin = module.exports = mongoose.model('Admin', adminSchema);
+const user = module.exports = mongoose.model('User', userSchema);

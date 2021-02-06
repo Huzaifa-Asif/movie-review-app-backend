@@ -29,8 +29,9 @@ router.post('/signup', function (req, res) {
 
 //Login for Users
 router.post('/login', function (req, res) {
-    let email = req.body.email;
-    let password = req.body.password;
+    var email = req.body.email;
+    var password = req.body.password;
+    console.log(email, password);
     record=new userModal();
     user.login(email, function (err, result) {
             if(err){
@@ -43,14 +44,18 @@ router.post('/login', function (req, res) {
                 {
                     var result1 = result.toObject();
                     result1.status = true;
-                    return res.json(result1);
+                    return res.json({
+                        status: true,
+                        message: "Successfully Authenticated",
+                        data: result
+                    });
                 }
                 else
-                return res.status(500).json({message:"Wrong Email",status:false});
+                return res.json({message:"Wrong Password",status:false});
             
             }
             else{
-                return res.status(500).json({message:"Wrong Password",status:false});
+                return res.json({message:"Wrong Email",status:false});
             }
            
     });
