@@ -29,3 +29,15 @@ module.exports.removeFilm = (id, callback) => {
     var query = {_id: id};
     film.remove(query, callback)
 }
+
+
+// Delete All Films
+module.exports.removeFilm = (callback) => {
+    film.remove(callback)
+}
+
+// Delete Film By Id
+module.exports.removeFilm = (callback) => {
+	var query = {_id: id};
+    film.remove(query, callback)
+}
