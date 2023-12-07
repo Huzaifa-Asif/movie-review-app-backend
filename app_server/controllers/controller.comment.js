@@ -11,6 +11,12 @@ module.exports.getAllCommentByFilmId = (filmId, callback) => {
 		.populate({ path: 'userId', select: ['name', 'email'] });
 }
 
+// Calculate Comment Stats
+module.exports.getFilmStats = (filmId, callback) => {
+	comment.find({ filmId: filmId }, callback)
+		.populate({ path: 'userId', select: ['name', 'email'] });
+}
+
 
 
 
