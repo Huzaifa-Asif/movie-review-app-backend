@@ -67,7 +67,7 @@ app.post('/login_v2', async (req, res) => {
     const { username, password } = req.body;
 
     // The vulnerability arises here: user input is directly used in the query
-    const user = await User.findOne({ username: username, password: password });
+    const user = await user.findOne({ username: username, password: password });
 
     if (user) {
         res.send('Login successful!');
