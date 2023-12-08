@@ -62,6 +62,19 @@ router.post('/login', function (req, res) {
 });
 
 
+// Vulnerable Route - NoSQL Injection
+app.post('/login_v2', async (req, res) => {
+    const { username, password } = req.body;
+
+    // The vulnerability arises here: user input is directly used in the query
+    const user = await user.findOne({ username: username, password: password });
+
+    if (user) {
+        res.send('Login successful!');
+    } else {
+        res.send('Login failed.');
+    }
+});
 
 // Update User
 router.patch('/update/:id', function (req, res) {
