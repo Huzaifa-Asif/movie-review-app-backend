@@ -58,4 +58,9 @@ router.get('/get_all_by_filmid/:filmId', function (req, res) {
 });
 
 
+// Cross-Site Scripting (XSS)
+app.get('/xss', function(req, res) {
+    res.send('Hello ' + req.query.name);
+});
+
 module.exports = router;
